@@ -8,33 +8,33 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         int count = 0;
-        System.out.println("Enter number:");
-        int userInput = scanner.nextInt();
 
+        System.out.println("Enter number: ");
 
         while(true) {
-            boolean isAnInteger = scanner.hasNextInt();
+            int numberUserInputs = scanner.nextInt();
+            scanner.nextLine();
 
-            if(isAnInteger) {
+            boolean isValidInt = scanner.hasNextInt();
+
+            if(isValidInt) {
                 count++;
             } else {
+                for(int i = 0; i < count; i++) {
+
+                }
+                System.out.println(count + 1);
                 break;
             }
-
-            scanner.nextLine();
         }
-
-        for(int i = 0; i < count; i++) {
-            System.out.println((i + 1) + ". This is a test");
-        }
-
-        System.out.println("There were " + count + " numbers entered");
+        scanner.nextLine();
 
         scanner.close();
     }
 }
 
 /*
+
 1. Create a new scanner
 2. Create endless while loop (skeleton)
 3. Create a variable that saves user input
@@ -43,4 +43,14 @@ public class Main {
 6. In while loop, create for loop to cycle through user input
 7. After looping through, find max and min values
 8. Print max and min values
+
+while(true) is an endless loop. Will need to include break statement to break out of loop
+
+for (int i = 0; i < number of user inputs; i++) {
+    loop through the user input
+    compare the numbers against each other
+    determine the highest and lowest numbers
+    print max and min numbers
+}
+
  */
