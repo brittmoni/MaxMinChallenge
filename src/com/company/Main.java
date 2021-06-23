@@ -7,28 +7,36 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int count = 0;
-
-        System.out.println("Enter number: ");
+        int min = 0;
+        int max = 0;
+        boolean first = true;
 
         while(true) {
-            int numberUserInputs = scanner.nextInt();
-            scanner.nextLine();
+            System.out.println("Enter number: ");
+            boolean isAnInt = scanner.hasNextInt();
 
-            boolean isValidInt = scanner.hasNextInt();
-
-            if(isValidInt) {
-                count++;
-            } else {
-                for(int i = 0; i < count; i++) {
-
+            if(isAnInt) {
+                int number = scanner.nextInt();
+                if(first) {
+                   first = false;
+                   min = number;
+                   max = number;
                 }
-                System.out.println(count + 1);
-                break;
-            }
-        }
-        scanner.nextLine();
 
+                if(number > max) {
+                    max = number;
+                }
+
+                if(number < min) {
+                    min = number;
+                }
+            } else {
+              break;
+            }
+
+            scanner.nextLine();
+        }
+        System.out.printf("Min = " + min + ", max = " + max);
         scanner.close();
     }
 }
